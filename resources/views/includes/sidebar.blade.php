@@ -29,4 +29,4 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
-    </aside>
+</aside>
