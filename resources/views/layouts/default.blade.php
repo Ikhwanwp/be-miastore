@@ -8,7 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{-- Style --}}
+    @stack('before-style')
     @include('includes.style')
+    @stack('after-style')
+
 </head>
 
 <body>
@@ -32,6 +35,9 @@
     <!-- /#right-panel -->
 
     <!-- Scripts -->
+    @stack('before-script')
     @include('includes.script')
+    @stack('after-script')
+
 </body>
 </html>

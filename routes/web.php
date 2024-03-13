@@ -26,6 +26,8 @@ Route::get('products/{id}/gallery', [ProductController::class, 'gallery'])->name
 
 Route::resource('products', ProductController::class);
 Route::resource('product-galleries', ProductGalleryController::class);
+
+Route::get('transactions/{id}/set-status', [TransactionController::class, 'setStatus'])->name('transactions.status');
 Route::resource('transactions', TransactionController::class);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
