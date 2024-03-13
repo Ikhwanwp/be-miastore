@@ -92,4 +92,5 @@ class ProductGalleryController extends Controller
 
         return redirect()->route('product-galleries.index');
     }
+
 }

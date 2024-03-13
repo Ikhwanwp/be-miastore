@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
-
+use App\Models\ProductGallery;
 use Illuminate\Support\Str; 
 // Str -> fungsi helper dari laravel
 
@@ -95,6 +95,24 @@ class ProductController extends Controller
         $item = Product::findOrFail($id);
         $item->delete();
 
+        // Mengapus foto gallery jika produknya dihapus
+        ProductGallery::where('products_id', $id)->delete();
+
         return redirect()->route('products.index');
+    }
+
+    public function gallery(Request $request, $id)
+    {
+        // untuk cek produknya ada apa engga
+        $product = Product::findOrFail($id); 
+        // Mengambil data produk, produk id diambil dari url id
+        $items = ProductGallery::with('product')
+            ->where('products_id', $id)
+            ->get();
+
+        return view('pages.products.gallery')->with([
+            'product' => $product,
+            'items' => $items
+        ]);
     }
 }
