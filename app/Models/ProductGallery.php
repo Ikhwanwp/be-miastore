@@ -15,7 +15,7 @@ class ProductGallery extends Model
         'products_id', 'photo', 'is_default'
     ];
 
-    protected $hidder = [
+    protected $hidden = [
 
     ];
 
